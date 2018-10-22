@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import App from './App';
 import './styles/styles.scss';
 
-const Index = () => {
-    return <div className="index">Hello React working with weasasdadbpack</div>;
-  };
-
-ReactDom.render(<Index />, document.querySelector('#root'));
+ReactDom.render(<App />, document.querySelector('#root'));

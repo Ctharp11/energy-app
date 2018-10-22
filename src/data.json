@@ -1,0 +1,38 @@
+{ "users":
+    [
+      {
+        "name": "Sam P",
+        "usage": {
+            "Jan": 957,
+            "Feb": 932,
+            "March": 963,
+            "April": 954,
+            "May": 948,
+            "June": 958, 
+            "July": 974,
+            "Aug": 982,
+            "Sept": 977,
+            "Oct": 954,
+            "Nov": 938,
+            "Dec": 942
+        }
+      },
+      {
+        "name": "Amber S",
+        "usage": {
+            "Jan": 963,
+            "Feb": 948,
+            "March": 957,
+            "April": 959,
+            "May": 964,
+            "June": 975, 
+            "July": 981,
+            "Aug": 989,
+            "Sept": 964,
+            "Oct": 943,
+            "Nov": 925,
+            "Dec": 905
+        } 
+      }
+    ]
+}
