@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Nav from './components/Nav';
-import Home from './components/Home';
-import User from './components/User';
+import Home from './components/Home/Home';
+import User from './components/User/User';
 import NotFound from './components/NotFound';
 import { getUserStories } from './services/utils';
 import { protectedRoute } from './services/HOC';

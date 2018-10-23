@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { loader } from '../services/HOC';
+import { loader } from '../../services/HOC';
 import Learn from './Learn';
 import Stories from './Stories';
 
