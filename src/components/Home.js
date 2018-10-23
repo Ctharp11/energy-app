@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { loader } from '../services/HOC';
 import Learn from './Learn';
 import Stories from './Stories';
 
@@ -12,7 +13,13 @@ class Home extends Component {
           <a href="#stories" className=""><button className="home-hero-stories"> Hear user stories </button></a>
         </div>
         <Learn />
-        <Stories />
+        {this.props.userStories.length > 0 
+          ?
+          <Stories stories={this.props.userStories} />
+          :
+          <div> Loading </div>
+        }
+        
       </div> 
     )
   }

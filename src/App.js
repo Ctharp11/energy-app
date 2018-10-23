@@ -51,10 +51,10 @@ class App extends Component {
             return;
         }
         this.state.data.users.map(user => {
-            console.log(user)
             if (user.username === this.state.email && user.password === this.state.password) {
                 this.setState({ userInfo: user, loggedin: true, logginModal: false, error: '' })
                 sessionStorage.setItem('loggedin', JSON.stringify(user))
+                this.props.history.push('/account');
                 return;
             }
             else {
@@ -82,22 +82,21 @@ class App extends Component {
         }
     }
 
-    // <Route exact path='/account' render={() => protectedRoute(User, allProps, this.state.loggedin)} />
-
     render() {
         const allProps = {
             browser: this.props,
             loggedin: this.state.loggedin,
             toggleModal: this.toggleModal,
             logout: this.logout,
-            userInfo: this.state.userInfo
+            userInfo: this.state.userInfo,
+            userStories: this.state.userStories
         }
         return(
           <div> 
             <Nav {...allProps} /> 
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/account' component={User} />
+              <Route exact path='/' render={ () => <Home {...allProps} /> } />
+              <Route exact path='/account' render={ () => protectedRoute(User, allProps, this.state.loggedin) } />
               <Route component={NotFound} />
             </Switch>
             
