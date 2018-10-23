@@ -19,6 +19,10 @@ class App extends Component {
     }
 
     componentDidMount() {
+        if (sessionStorage.getItem('loggedin')) {
+            let user = JSON.parse(sessionStorage.getItem('loggedin'));
+            this.setState({ userInfo: user, loggedin: true, logginModal: false, error: '' })
+        }
         getUserStories()
         .then(res => this.setState({ userStories: res.data.results }))
         .catch(err => console.log(err))
@@ -31,28 +35,37 @@ class App extends Component {
     }
 
     handleChange = (e) => {
+        this.setState({ error: '' })
         const { name, value } = e.target;
         this.setState({ [name]: value});
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.data.users)
-        console.log(this.state.email)
-        console.log(this.state.password)
+        if (this.state.password === '' || this.state.email === '') {
+            this.setState({ error: 'You must include username and password!'})
+            return;
+        }
         this.state.data.users.map(user => {
             console.log(user)
             if (user.username === this.state.email && user.password === this.state.password) {
-                console.log('match with', user.name)
+                this.setState({ userInfo: user, loggedin: true, logginModal: false, error: '' })
+                sessionStorage.setItem('loggedin', JSON.stringify(user))
+                return;
             }
             else {
-                console.log('no match')
+                this.setState({ error: 'Username or password incorrect!'})
             }
         })
     }
 
     toggleModal = () => {
         this.setState({ logginModal: !this.state.logginModal })
+    }
+
+    logout = () => {
+        this.setState({ loggedin: false, userInfo: '' })
+        sessionStorage.removeItem('loggedin')
     }
 
     setWrapper = (node) => {
@@ -68,7 +81,8 @@ class App extends Component {
     render() {
         const allProps = {
             loggedin: this.state.loggedin,
-            toggleModal: this.toggleModal
+            toggleModal: this.toggleModal,
+            logout: this.logout
         }
         return(
           <div> 
@@ -82,6 +96,7 @@ class App extends Component {
                     <div className="modal-inner-x" onClick={this.toggleModal}>X</div>
                     <div className="modal-inner-head"> Sign In </div>
                     <div className="modal-inner-text"> Welcome to Energex! Thanks for choosing us to help you save money on your energy bill.</div>
+                    {this.state.error !== '' ? <div className="error"> {this.state.error} </div> : null}
                     <form onSubmit={this.handleSubmit}>
                         <div><input type="text" className="modal-inner-input" placeholder="Email" name="email" onChange={this.handleChange}/></div>
                         <div><input type="password" className="modal-inner-input" placeholder="Password" name="password" onChange={this.handleChange} /></div>

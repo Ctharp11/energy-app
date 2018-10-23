@@ -15,7 +15,7 @@ class Nav extends Component {
             ?
             <div className="nav-subhead" onClick={this.props.toggleModal}> Sign in </div>
             :
-            <div className="nav-subhead"> <span className="nav-subhead"> Account </span> <span className="nav-subhead"> Sign out </span> </div>
+            <div className="nav-subhead"> <span className="nav-subhead"> Account </span> <span className="nav-subhead" onClick={this.props.logout }> Sign out </span> </div>
           }
         </div>
       )
