@@ -1,11 +1,12 @@
 import React from 'react';
 import { Fragment } from 'react';
+import UserStory from './UserStory'
 
 const Stories = (props) => (
     <div id="stories" className="stories"> 
+      <div className="stories-head"> Our Success Stories</div> 
     {props.stories.map((story, index) => {
-      {console.log(story)}
-      return <Fragment key={index}> {story.name.first} </Fragment>
+      return <Fragment key={index}> <UserStory {...story} /> </Fragment>
     })}
     </div>
 )
