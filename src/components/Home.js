@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import Learn from './Learn';
+import Stories from './Stories';
 
 class Home extends Component {
   render() {
@@ -6,9 +8,11 @@ class Home extends Component {
       <div className="home">
         <div className="home-hero">
           <div className="home-hero-head"> Ready to lower your energy bill?</div>
-          <button className="home-hero-cta"> Learn more </button>
-          <button className="home-hero-stories"> Hear user stories --> </button>
+          <a href="#learn" className=""><button className="home-hero-cta"> Learn more </button></a>
+          <a href="#stories" className=""><button className="home-hero-stories"> Hear user stories --> </button></a>
         </div>
+        <Learn />
+        <Stories />
       </div> 
     )
   }
