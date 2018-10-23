@@ -9,7 +9,7 @@ class Home extends Component {
         <div className="home-hero">
           <div className="home-hero-head"> Ready to lower your energy bill?</div>
           <a href="#learn" className=""><button className="home-hero-cta"> Learn more </button></a>
-          <a href="#stories" className=""><button className="home-hero-stories"> Hear user stories --> </button></a>
+          <a href="#stories" className=""><button className="home-hero-stories"> Hear user stories </button></a>
         </div>
         <Learn />
         <Stories />

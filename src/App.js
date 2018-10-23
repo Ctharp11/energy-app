@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
+import { Route, withRouter } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
+import User from './components/User';
 import { getUserStories } from './services/utils';
 import data from './data.json';
 
@@ -75,19 +77,22 @@ class App extends Component {
     handleClickOutside = (event) => {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
             this.toggleModal()
-         }
+        }
     }
 
     render() {
         const allProps = {
+            browser: this.props,
             loggedin: this.state.loggedin,
             toggleModal: this.toggleModal,
             logout: this.logout
         }
+        console.log('app', this.props)
         return(
           <div> 
             <Nav {...allProps} /> 
-            <Home numbers={this.state.numbers} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/account' component={User} />
 
             {
                 this.state.logginModal &&
@@ -110,4 +115,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);
