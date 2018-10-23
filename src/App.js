@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import User from './components/User';
+import NotFound from './components/NotFound';
 import { getUserStories } from './services/utils';
+import { protectedRoute } from './services/HOC';
 import data from './data.json';
 
 class App extends Component {
@@ -80,20 +82,25 @@ class App extends Component {
         }
     }
 
+    // <Route exact path='/account' render={() => protectedRoute(User, allProps, this.state.loggedin)} />
+
     render() {
         const allProps = {
             browser: this.props,
             loggedin: this.state.loggedin,
             toggleModal: this.toggleModal,
-            logout: this.logout
+            logout: this.logout,
+            userInfo: this.state.userInfo
         }
-        console.log('app', this.props)
         return(
           <div> 
             <Nav {...allProps} /> 
-            <Route exact path='/' component={Home} />
-            <Route exact path='/account' component={User} />
-
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/account' component={User} />
+              <Route component={NotFound} />
+            </Switch>
+            
             {
                 this.state.logginModal &&
                 <div className="modal-outer">
