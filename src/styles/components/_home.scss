@@ -1,0 +1,44 @@
+.home {
+    &-hero {
+      height: 54rem;
+      background-image: url('https://www.greenmountainenergy.com/wp-content/uploads/2018/09/gme-desktop-hero-image.png');
+      background-size: cover;
+      &-head {
+          text-align: center;
+          font-size: 4rem;
+          color: white;
+          padding-top: 5rem;
+      }
+      &-cta, 
+      &-stories {
+        display: block;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1rem 2rem;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        margin: 1rem;
+        font-size: 1.6rem;
+        border: none;
+        width: 30rem;
+        height: 6rem;
+        &:hover {
+            cursor: pointer;
+        }
+      }
+      &-cta {
+          background-color: rgb(227,126,61);
+            &:hover {
+              background-color: rgb(226, 106, 32);
+            }
+      }
+      &-stories {
+        background-color: rgb(41, 63, 124);
+          &:hover {
+            background-color: rgb(14, 31, 78);
+          }
+      }
+    }
+}

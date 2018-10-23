@@ -2,6 +2,8 @@
     [
       {
         "name": "Sam P",
+        "username": "sam@gmail.com",
+        "password": "samiam",
         "usage": {
             "Jan": 957,
             "Feb": 932,
@@ -19,6 +21,8 @@
       },
       {
         "name": "Amber S",
+        "username": "amber@gmail.com",
+        "password": "amberiscolorofenergy",
         "usage": {
             "Jan": 963,
             "Feb": 948,

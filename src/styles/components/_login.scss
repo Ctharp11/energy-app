@@ -1,0 +1,59 @@
+.modal {
+    &-outer {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: hsla(0, 0, 80, .4);
+    }
+    &-inner {
+        padding: 2rem;
+        background-color: white;
+        width: 80vw;
+        height: 400px;
+        margin: 0 auto;
+        margin-top: 5rem;
+        text-align: center;
+        box-shadow: 0 2px 2px 2px rgba(0, 0 , 0, .3);
+        &-x {
+            font-size: 2rem;
+            float: right;
+            margin: 1rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &-head {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            margin-top: 6rem;
+        }
+        &-text {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+        &-input {
+            width: 50rem;
+            padding: 1px 5px;
+            height: 4rem;
+            border: 1px solid black;
+            margin-bottom: 2px;
+            font-size: 1.6rem;
+            box-sizing: border-box;
+        }
+        &-button {
+            width: 50rem;
+            height: 4rem;
+            font-size: 1.6rem;
+            border-radius: 0;
+            border: none;
+            color: white;
+            margin-top: 2px;
+            background-color: rgb(227,126,61);
+            &:hover {
+              background-color: rgb(226, 106, 32);
+              cursor: pointer;
+            }
+        }
+    }
+}
