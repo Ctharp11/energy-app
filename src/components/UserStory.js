@@ -4,11 +4,10 @@ const feedback = ["Energex helps us save $1300 last year by insulating our windo
 
 const UserStory = (props) => (
   <div className="stories-card"> 
-  {console.log(props)}
      <img className="stories-card-image" src={props.picture.large} alt='user' />
      <div>
-       <div className="stories-card-name">{props.name.first} {props.name.last}</div>
-       <div className="stories-card-text"> {feedback[Math.floor(Math.random()*feedback.length)]}</div>
+       <div className="stories-card-name">{props.name.first[0].toUpperCase()}{props.name.first.slice(1, props.name.first.length)} {props.name.last[0].toUpperCase()}{props.name.last.slice(1, props.name.last.length)}</div>
+       <div className="stories-card-text"> "{feedback[Math.floor(Math.random()*feedback.length)]}"</div>
      </div>
   </div>
 )
