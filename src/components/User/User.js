@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import UserChart from './UserChart';
     
 const User = (props) => (
@@ -8,5 +9,9 @@ const User = (props) => (
       <UserChart usage={props.userInfo.usage}  />
     </div>
 )
+
+User.propTypes = {
+    userInfo: PropTypes.object
+  }
 
 export default User;

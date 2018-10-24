@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { loader } from '../../services/HOC';
+import PropTypes from 'prop-types';
 import Learn from './Learn';
 import Stories from './Stories';
 
@@ -23,6 +24,10 @@ class Home extends Component {
       </div> 
     )
   }
+}
+
+Home.propTypes = {
+  userStories: PropTypes.array
 }
 
 export default Home;

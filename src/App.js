@@ -1,11 +1,15 @@
 import React, { Component, Fragment } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import { getUserStories } from './services/utils';
+import { protectedRoute } from './services/HOC';
+
 import Nav from './components/Nav';
 import Home from './components/Home/Home';
 import User from './components/User/User';
 import NotFound from './components/NotFound';
-import { getUserStories } from './services/utils';
-import { protectedRoute } from './services/HOC';
+
 import data from './data.json';
 
 class App extends Component {
@@ -29,7 +33,7 @@ class App extends Component {
         }
         getUserStories()
         .then(res => this.setState({ userStories: res.data.results }))
-        .catch(err => console.log(err))
+        .catch(err => err)
 
         document.addEventListener('mousedown', this.handleClickOutside);
     }
@@ -121,4 +125,8 @@ class App extends Component {
     }
 }
 
-export default withRouter(App);
+App.propTypes = {
+    props: PropTypes.object
+  }
+
+export default withRouter( App );

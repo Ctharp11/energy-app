@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Nav extends Component {
     constructor() {
@@ -21,6 +22,12 @@ class Nav extends Component {
         </div>
       )
     }
+}
+
+Nav.propTypes = {
+  toggleModal: PropTypes.func,
+  logout: PropTypes.func,
+  loggedin: PropTypes.bool
 }
 
 export default Nav;
